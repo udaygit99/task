@@ -1,0 +1,62 @@
+package co.uday.thread;
+
+class task1 implements Runnable 
+{
+	public void run() 
+	{
+		Thread t = Thread.currentThread();
+		System.out.println(t);
+		for(int i=1;i<=20;i+=2)
+			System.out.println(" Run - " + i);
+//		try
+//		{
+//			Thread.sleep(1000);
+//		}catch(Exception e) {}
+		
+	}
+}
+public class newthread {
+
+	public static void main(String[] args) {
+	
+		System.out.println(" Thread Count 1 :" + Thread.activeCount());
+		
+		Thread t = Thread.currentThread();
+		
+		Thread.getAllStackTraces();	
+
+		System.out.println(" Thread Info " +  t);
+		
+		task1 task = new task1();
+		Thread at = new Thread(task);
+		at.start();
+		
+		Thread bt = new Thread(task);
+		bt.start();
+		
+		Thread ct = new Thread(task);
+		ct.start();
+		System.out.println(" Thread Count 2 :" + Thread.activeCount());
+		Thread dt = new Thread(task);
+		dt.start();
+		
+		Thread et = new Thread(task);
+		et.start();
+		System.out.println(" Thread Count 3  :" + Thread.activeCount());
+		Thread ft = new Thread(task);
+		ft.start();
+		
+		task1 task01 = new task1();
+		Thread zt = new Thread(task01);
+		zt.start();
+		System.out.println(" Thread Count 4 :" + Thread.activeCount());
+		for(int i = 1;i<=10;i++)
+		{
+			System.out.println("Main - " + i);
+			
+		}
+
+		System.out.println(" Thread Count 5 :" + Thread.activeCount());
+	}
+
+}
